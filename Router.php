@@ -28,7 +28,7 @@ class Router
 
         // $auth = $_SESSION['login'] ?? null;
 
-        $currentUrl = $_SERVER['REQUEST_URI'] === '' ? '/' : $_SERVER['REQUEST_URI'];
+        $currentUrl = strtok($_SERVER['REQUEST_URI'], '?') ?? '/'; // strtok() devuelve la primera parte de la cadena que se le pasa, en este caso la url, hasta el signo de interrogación, si no hay signo de interrogación devuelve la url completa
         $method = $_SERVER['REQUEST_METHOD'];
 
         if ($method === 'GET') {
